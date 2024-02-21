@@ -50,7 +50,8 @@ namespace MichaelSplaver_MidtermProjectCSI350.Models
                 );
             }
             if (!context.Assignments.Any()) {
-                Dictionary<string,Course> courses = context.Courses.ToDictionary(values => values.CourseName);
+                Dictionary<string,Course> courses = new Dictionary<string, Course>();
+                foreach ( var course in context.Courses.Local) { courses.Add( course.CourseName, course ); }
                 context.Assignments.AddRange(
                     new Assignment { 
                         AssignmentName = "Week 1 Discussion",

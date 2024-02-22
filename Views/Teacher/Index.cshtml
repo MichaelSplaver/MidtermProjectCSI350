@@ -1,8 +1,46 @@
 ﻿@{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Teachers";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome to my Midterm Project!</h1>
-    <p>Project Created by Michael Splaver</p>
+@model IEnumerable<MichaelSplaver_MidtermProjectCSI350.Models.Teacher>
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="box-title">
+            <b>Teachers</b>
+        </h3>
+    </div>
+    <!-- /.box-header -->
+    <div class="panel-body">
+
+        <table class="table table-hover table-bordered table-condensed" id="Teachers">
+            <thead>
+                <tr>
+                    <td><b>ID</b></td>
+                    <td><b>First Name</b></td>
+                    <td><b>Last Name</b></td>
+                    <td><b>Graduate College</b></td>
+                </tr>
+            </thead>
+            @foreach (var teacher in Model)
+            {
+                <tr>
+                    <td>@teacher.TeacherID</td>
+                    <td>@teacher.FirstName</td>
+                    <td>@teacher.LastName</td>
+                    <td>@teacher.DegreeSchool</td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+
+
+<div class="container">
+    <a class="btn btn-primary m-2" asp-controller="Teacher" asp-action="JsonView" target="_blank">View As Json File</a>
+
+    <a class="btn btn-primary m-2" asp-controller="Teacher" asp-action="TextView" target="_blank">View As Text File</a>
+
+    <a class="btn btn-primary m-2" asp-controller="Teacher" asp-action="Downloads">Downloads Page</a>
+
 </div>

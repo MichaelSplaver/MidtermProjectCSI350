@@ -1,8 +1,46 @@
 ﻿@{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Assignments";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome to my Midterm Project!</h1>
-    <p>Project Created by Michael Splaver</p>
+@model IEnumerable<MichaelSplaver_MidtermProjectCSI350.Models.ViewModels.AssignmentWithCourse>
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="box-title">
+            <b>Assignments</b>
+        </h3>
+    </div>
+    <!-- /.box-header -->
+    <div class="panel-body">
+
+        <table class="table table-hover table-bordered table-condensed" id="Assignments">
+            <thead>
+                <tr>
+                    <td><b>ID</b></td>
+                    <td><b>Assignment Name</b></td>
+                    <td><b>Available Points</b></td>
+                    <td><b>Course</b></td>
+                </tr>
+            </thead>
+            @foreach (var assignment in Model)
+            {
+                <tr>
+                    <td>@assignment.AssignmentID</td>
+                    <td>@assignment.AssignmentName</td>
+                    <td>@assignment.AvailablePoints</td>
+                    <td>@assignment.CourseName</td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+
+
+<div class="container">
+    <a class="btn btn-primary m-2" asp-controller="Assignment" asp-action="JsonView" target="_blank">View As Json File</a>
+
+    <a class="btn btn-primary m-2" asp-controller="Assignment" asp-action="TextView" target="_blank">View As Text File</a>
+
+    <a class="btn btn-primary m-2" asp-controller="Assignment" asp-action="Downloads">Downloads Page</a>
+
 </div>

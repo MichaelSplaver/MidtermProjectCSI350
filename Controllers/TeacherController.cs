@@ -39,7 +39,6 @@ namespace MichaelSplaver_MidtermProjectCSI350.Controllers
             return View();
         }
 
-
         public IActionResult TextDownload()
         {
             var stream = new MemoryStream(Encoding.ASCII.GetBytes(teachersToString(repo.Teachers)));
@@ -57,7 +56,6 @@ namespace MichaelSplaver_MidtermProjectCSI350.Controllers
                 FileDownloadName = "teachers.json"
             };
         }
-
 
         private string teachersToString(IQueryable<Teacher> teacherList)
         {

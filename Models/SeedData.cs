@@ -133,13 +133,13 @@ namespace MichaelSplaver_MidtermProjectCSI350.Models
                 {
                     FirstName = "Shane",
                     LastName = "Frigon",
-                    DegreeSchool = "Washington State University"
+                    DegreeSchool = "Stanford University"
                 },
                 new Teacher
                 {
                     FirstName = "Naser",
                     LastName = "Chowdhury",
-                    DegreeSchool = "Stanford University"
+                    DegreeSchool = "Washington State University"
                 },
                 new Teacher
                 {

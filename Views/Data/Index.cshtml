@@ -1,8 +1,72 @@
 ﻿@{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Data";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome to my Midterm Project!</h1>
-    <p>Project Created by Michael Splaver</p>
+@model MichaelSplaver_MidtermProjectCSI350.Models.ViewModels.SiteData
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="box-title">
+            <b>Data</b>
+        </h3>
+    </div>
+    <!-- /.box-header -->
+    <div class="panel-body">
+        <p>Teacher Count: @Model.CountTeachers</p>
+        <p>Course Count: @Model.CountCourses</p>
+        <p>Assignment Count: @Model.CountAssignments</p>
+    </div>
+
+    <h4>Total Points for All Assignments</h4>
+    <table class="table table-hover table-bordered table-condensed" id="1">
+        <thead>
+            <tr>
+                <td><b>Course</b></td>
+                <td><b>Total Points</b></td>
+            </tr>
+        </thead>
+        @foreach (var item in Model.TotalPointsPerCourse)
+        {
+            <tr>
+                <td>@item.Key</td>
+                <td>@item.Value</td>
+            </tr>
+        }
+    </table>
+
+    <h4>Total Assignments per Course</h4>
+    <table class="table table-hover table-bordered table-condensed" id="2">
+        <thead>
+            <tr>
+                <td><b>Course</b></td>
+                <td><b>Assignment Count</b></td>
+            </tr>
+        </thead>
+        @foreach (var item in Model.AssignmentsPerCourse)
+        {
+            <tr>
+                <td>@item.Key</td>
+                <td>@item.Value</td>
+            </tr>
+        }
+    </table>
+
+    <h4>Total Courses per Quarter</h4>
+    <table class="table table-hover table-bordered table-condensed" id="3">
+        <thead>
+            <tr>
+                <td><b>Quarter</b></td>
+                <td><b>Courses Count</b></td>
+            </tr>
+        </thead>
+        @foreach (var item in Model.CoursesPerQuarter)
+        {
+            <tr>
+                <td>@item.Key</td>
+                <td>@item.Value</td>
+            </tr>
+        }
+    </table>
 </div>
+
+
